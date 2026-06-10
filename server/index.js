@@ -18,7 +18,8 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser())
 const crosOption={
-    origin:"http://localhost:5173",
+    origin:["http://localhost:5173",
+    "https://mern-ai-career-assistant.onrender.com"],
     credentials:true
 }
 app.use(cors(crosOption))
