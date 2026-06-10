@@ -7,6 +7,7 @@ import { PDFParse } from 'pdf-parse'
 export const resumeUpload = async (req, res) => {
     try {
         const file = req.file
+        console.log("1. File received");
         const userId = req.userId
         if (!file) {
             return res.status(400).json({
@@ -39,6 +40,7 @@ export const resumeUpload = async (req, res) => {
             const pdfData = await parser.getText();
 
             parsedText = pdfData.text;
+            console.log("2. PDF parsed");
             if (!parsedText || parsedText.trim().length < 50) {
                 return res.status(400).json({
                     message: "PDF appears empty or image-based, cannot extract text",
@@ -65,11 +67,12 @@ export const resumeUpload = async (req, res) => {
             folder: "resumes",
             format: "pdf"
         })
-
+        console.log("3. Cloudinary upload complete");
         const extractedData = await parseResumeWithAI(parsedText)
         console.log("EXTRACTED DATA");
 console.dir(extractedData, { depth: null });
-        await Resume.updateMany(
+        
+          await Resume.updateMany(
             { userId, isActive: true },
             { isActive: false }
         );
@@ -90,6 +93,8 @@ console.dir(extractedData, { depth: null });
         });
 
     } catch (error) {
+        console.log("Resume Upload Error:");
+     console.log(error);
         return res.status(400).json({
             message: "server error",
             success: false
