@@ -1,14 +1,14 @@
 import axios from "axios";
 
 const ML_SERVICE_URL = process.env.ML_SERVICE_URL;
-
+ console.log("Calling ML Score API",ML_SERVICE_URL);
 export const getMLScore = async (parsedResume) => {
     try {
         const { data } = await axios.post(
             `${ML_SERVICE_URL}/ml/score`,
             { parsedResume }
         );
-
+         console.log("ML Score Response:", data);
         return data;
     } catch (error) {
         console.log("ML Score Error:", error.message);
