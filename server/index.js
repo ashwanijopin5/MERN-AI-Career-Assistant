@@ -29,6 +29,16 @@ app.use("/api/v1/analysis", analysisRoutes)
 app.use("/api/v1/interview", interviewRoutes)
 app.use("/api/v1/job", jobRoutes)
 
+app.use((err, req, res, next) => {
+    console.error("GLOBAL ERROR:");
+    console.error(err);
+
+    res.status(500).json({
+        success: false,
+        message: err.message
+    });
+});
+
 app.get('/',(req,res)=>{
     res.send("server is running")
 })

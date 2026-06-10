@@ -12,10 +12,13 @@ import { singleUpload } from '../middlewares/multer.js'
 const router = express.Router();
 
 
-router.post("/upload", (req, res, next) => {
-    console.log("UPLOAD ROUTE HIT");
-    next();
-}, isAuthanticated, singleUpload, resumeUpload);
+router.post("/upload", (req,res)=>{
+    console.log("UPLOAD ROUTE WORKING");
+
+    res.json({
+        success:true
+    })
+})
 router.get("/all", isAuthanticated, getAllresumes);
 router.get("/:id", isAuthanticated, getResumeByid);
 router.put("/:id/setactive", isAuthanticated, setActiveResume);
