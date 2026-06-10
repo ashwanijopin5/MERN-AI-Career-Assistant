@@ -94,7 +94,7 @@ console.dir(extractedData, { depth: null });
 
     } catch (error) {
         console.log("Resume Upload Error:");
-     console.log(error);
+     console.error(error);
         return res.status(400).json({
             message: "server error",
             success: false
