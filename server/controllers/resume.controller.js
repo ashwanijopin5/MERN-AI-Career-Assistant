@@ -3,9 +3,9 @@ import { Resume } from "../models/resume.model.js"
 import getDataURi from "../utils/datauri.js";
 import cloudinary from "../utils/cloudinary.js";
 import parseResumeWithAI from "../utils/parseResumeWithAI.js";
-//import { PDFParse } from 'pdf-parse'
-import pdf from "pdf-parse";
-//console.log("PDFParse =", PDFParse);
+import { PDFParse } from 'pdf-parse'
+
+console.log("PDFParse =", PDFParse);
 export const resumeUpload = async (req, res) => {
     console.log("controller strta");
     try {
@@ -37,7 +37,7 @@ export const resumeUpload = async (req, res) => {
 
         let parsedText = ""
         try {
-            const parser = new pdf({
+            const parser = new PDFParse({
                 data: file.buffer
             });
 
