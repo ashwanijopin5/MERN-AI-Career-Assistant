@@ -4,6 +4,7 @@ import getDataURi from "../utils/datauri.js";
 import cloudinary from "../utils/cloudinary.js";
 import parseResumeWithAI from "../utils/parseResumeWithAI.js";
 import { PDFParse } from 'pdf-parse'
+console.log("PDFParse =", PDFParse);
 export const resumeUpload = async (req, res) => {
     console.log("controller strta");
     try {

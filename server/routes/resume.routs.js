@@ -18,6 +18,7 @@ router.post(
   singleUpload,
   resumeUpload
 )
+
 router.get("/all", isAuthanticated, getAllresumes);
 router.get("/:id", isAuthanticated, getResumeByid);
 router.put("/:id/setactive", isAuthanticated, setActiveResume);
