@@ -23,6 +23,7 @@ except FileNotFoundError:
 @score_bp.route("/score", methods=["POST"])
 def score_resume():
     try:
+        print("score hit ")
         data = request.get_json()
         print("REQUEST JSON")
         print(request.json)

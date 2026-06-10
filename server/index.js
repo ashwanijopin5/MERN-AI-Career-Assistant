@@ -12,7 +12,7 @@ Dotenv.config()
 
 const PORT=process.env.PORT||5000
 console.log(PORT)
-
+console.log("ML_SERVICE_URL =", process.env.ML_SERVICE_URL);
 const app=express()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
