@@ -1,6 +1,6 @@
 
 const API_URL = import.meta.env.VITE_API_URL;
-
+console.log("API URL =", import.meta.env.VITE_API_URL)
 export const USER_END_POINT = `${API_URL}/user`;
 export const job_END_POINT = `${API_URL}/job`;
 export const ANALYSIS_POINT = `${API_URL}/analysis`;
