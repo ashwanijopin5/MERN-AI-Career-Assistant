@@ -18,7 +18,7 @@ from routes.similarity import similarity_bp
 app.register_blueprint(score_bp, url_prefix='/ml')
 app.register_blueprint(similarity_bp, url_prefix='/ml')
 
-@app.route('/health')
+@app.route('/')
 def health():
     return {
         "status": "ML service running",
