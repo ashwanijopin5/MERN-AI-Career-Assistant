@@ -1,0 +1,5 @@
+export const USER_END_POINT="/user"
+export const job_END_POINT="/job"
+export const ANALYSIS_POINT="/analysis"
+export const RESUME_END_POINT="/resume"
+export const INTERVIEW_END_POINT="/interview"
