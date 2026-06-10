@@ -13,18 +13,10 @@ const router = express.Router();
 
 
 router.post(
-    "/upload",
-    isAuthanticated,
-    singleUpload,
-    (req, res) => {
-        console.log("AFTER MULTER");
-
-        console.log(req.file);
-
-        res.json({
-            success: true
-        })
-    }
+  "/upload",
+  isAuthanticated,
+  singleUpload,
+  resumeUpload
 )
 router.get("/all", isAuthanticated, getAllresumes);
 router.get("/:id", isAuthanticated, getResumeByid);

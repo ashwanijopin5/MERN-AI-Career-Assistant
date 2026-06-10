@@ -5,7 +5,9 @@ import cloudinary from "../utils/cloudinary.js";
 import parseResumeWithAI from "../utils/parseResumeWithAI.js";
 import { PDFParse } from 'pdf-parse'
 export const resumeUpload = async (req, res) => {
+    console.log("controller strta");
     try {
+        
         const file = req.file
         console.log("1. File received");
         const userId = req.userId
@@ -67,6 +69,13 @@ export const resumeUpload = async (req, res) => {
             folder: "resumes",
             format: "pdf"
         })
+        if(!cloudResponse){
+            return res.status(400).json({
+            message: "cloud response error",
+            success: false
+        })
+        }
+
         console.log("3. Cloudinary upload complete");
         const extractedData = await parseResumeWithAI(parsedText)
         console.log("EXTRACTED DATA");
@@ -96,7 +105,7 @@ console.dir(extractedData, { depth: null });
         console.log("Resume Upload Error:");
      console.error(error);
         return res.status(400).json({
-            message: "server error",
+            message: "server error in resume uplad",
             success: false
         })
     }
