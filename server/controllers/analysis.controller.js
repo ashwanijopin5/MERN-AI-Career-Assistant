@@ -37,7 +37,7 @@ export const analyzeResume = async (req, res) => {
             })
         }
 
-
+         
         const [aiResult, mlScoreResult, mlSimilarityResult] = await Promise.all([
             analyzeResumeATS(
                 resume.parsedText,
@@ -55,7 +55,7 @@ export const analyzeResume = async (req, res) => {
         ]);
 
 
-
+        console.log("ML Response:",mlScoreResult)
         if (!aiResult) {
             return res.status(500).json({
                 message: "AI analysis failed, please try again",

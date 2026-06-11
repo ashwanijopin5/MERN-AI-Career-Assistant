@@ -11,7 +11,16 @@ export const getMLScore = async (parsedResume) => {
          console.log("ML Score Response:", data);
         return data;
     } catch (error) {
-        console.log("ML Score Error:", error.message);
+        console.log("========== ML SCORE ERROR ==========");
+
+    console.log("MESSAGE:", error.message);
+
+    if (error.response) {
+        console.log("STATUS:", error.response.status);
+        console.log("DATA:", error.response.data);
+    }
+
+    console.log("===================================");
         return null;
     }
 };
